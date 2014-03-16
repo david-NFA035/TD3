@@ -1,6 +1,12 @@
 
 public class ExempleAvecNote {
 	
+	/** calcule la moyenne des notes obtenues
+	 * 
+	 * @param annee    tableau contenant les objets AlgoProg2 et AlgoProg5
+	 * @return 
+	 */
+	
 	public static double moyenneNotes (AvecNote[] annee){
 		double total = 0;
 		for (AvecNote a : annee){
@@ -18,9 +24,11 @@ public class ExempleAvecNote {
 		UEs[3] = new AlgoProg5(3.5, 5.5);
 		
 		// String UEs[0].getSession1();
-		/* l'appel à getSession1() est illicite.
+		
+	   /*
+		* l'appel à getSession1() est illicite.
 		* les objets stockés dans le tableau UEs sont de type AvecNote.
-		* Et le type AvecNote n'a pas cette méthode.
+		* et le type AvecNote n'a pas cette méthode.
 		* solution possibles :
 		* - caster explicitement l'objet en AlgoProg2
 		* - ajouter la méthode getSession1() au contrat de l'interface AvecNote.
@@ -29,6 +37,7 @@ public class ExempleAvecNote {
 		System.out.println(moyenneNotes(UEs));
 		
 		//Affichable a = new AlgoProg5(12, 6);
+		
 		/*
 		 * AlgoProg5 n'implémente pas Affichable.
 		 * On ne peut donc pas "ranger" un objet AloProg5

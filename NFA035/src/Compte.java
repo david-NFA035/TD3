@@ -10,17 +10,26 @@ public class Compte
     // Variables d'instance
     private int numero;
     private double solde;
-    String titulaire;
-
+    private String titulaire;
+    
     /** Le constructeur recoit les valeurs initiales du compte.
-     * @param num  le no. du compte 
-     * @param init   le solde initial 
-     * @param titul   le solde initial 
+     * @param num     le no. du compte 
+     * @param init    le solde initial 
+     * @param titul   le nom du titulaire du compte
      */
     public Compte(int num, double init, String titul){
-	  this.numero = num;
-	  this.solde = init;
-	  this.titulaire = titul;
+    	this.numero = num;
+    	this.solde = init;
+    	this.titulaire = titul;
+    }
+
+    /** Le constructeur recoit les valeurs initiales du compte anonyme.
+     * constructeur compatible avec les appels de la première version
+     * @param num  le no. du compte 
+     * @param init   le solde initial 
+     */
+    public Compte(int num, double init){
+	  this(num, init, "anonyme");
     }
     /** Obtenir le solde courant
      * @return valeur courante du solde
@@ -50,9 +59,9 @@ public class Compte
      * @param m montant virement
      * @param destination compte crediteur 
      */ 
-    public void virerVers(Compte destination, double m) throws IllegalMontant {
+    public void virerVers(Compte destination, double m) throws MontantInsuffisant {
         if (m > this.getSolde()){
-        	throw new IllegalMontant();
+        	throw new MontantInsuffisant();
         }
     	this.retrait(m);
         destination.depot(m);
